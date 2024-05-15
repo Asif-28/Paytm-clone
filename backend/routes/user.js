@@ -41,10 +41,10 @@ router.post("/signup", async (req, res) => {
   });
   const userId = user._id;
 
-  await Account.create({
-    userId,
-    balance: 1 + Math.random() * 10000,
-  });
+  // await Account.create({
+  //   userId,
+  //   balance: 1 + Math.random() * 10000,
+  // });
 
   const token = jwt.sign(
     {
@@ -118,6 +118,8 @@ router.put("/", authMiddleware, async (req, res) => {
     message: "Updated successfully",
   });
 });
+
+// used to search the name by sub strings in the first name and last name fields
 
 router.get("/bulk", async (req, res) => {
   const filter = req.query.filter || "";
