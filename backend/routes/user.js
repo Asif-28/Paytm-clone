@@ -41,10 +41,10 @@ router.post("/signup", async (req, res) => {
   });
   const userId = user._id;
 
-  // await Account.create({
-  //   userId,
-  //   balance: 1 + Math.random() * 10000,
-  // });
+  await Account.create({
+    userId,
+    balance: 1 + Math.random() * 10000,
+  });
 
   const token = jwt.sign(
     {
@@ -110,6 +110,7 @@ router.put("/", authMiddleware, async (req, res) => {
     });
   }
 
+  // console.log(req.userId)
   await User.updateOne(req.body, {
     id: req.userId,
   });
