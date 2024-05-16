@@ -1,6 +1,8 @@
 const { mongoose } = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/paytm");
+mongoose.connect(`${process.env.MONGODB}`);
+
+// console.log(process.env.MONGODB);
 
 const { Schema } = mongoose;
 
